@@ -1,96 +1,88 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <title>Secure Access</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Secure Access</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-        }
-
-        .box {
-    width: 100%;
-    max-width: 420px;
-    padding: 35px;
-    background: rgba(255,255,255,0.12);
-    border-radius: 14px;
-    text-align: center;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.35);
-
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:'Segoe UI',Tahoma,sans-serif;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:#fff;
 }
 
-        .approval{
-    color: #2ecc71; /* Professional Green */
-    font-weight: 600;
-    margin-left: 38%;
+.box{
+    width:100%;
+    max-width:420px;
+    padding:35px;
+    background:rgba(255,255,255,0.12);
+    border-radius:14px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,0.35);
 }
 
-
-
-        h2 {
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        p {
-            font-size: 14px;
-            opacity: 0.85;
-        }
-
-
-
-       input {
-    width: 80%;
-    padding: 14px;
-    margin-top: 15px;
-    border-radius: 8px;
-    border: none;
-    font-size: 16px;
-    text-align: center;
-    outline: none;
+h2{
+    margin-bottom:10px;
+    font-weight:600;
 }
 
+p{
+    font-size:14px;
+    opacity:.9;
+}
 
-        button {
-            margin-top: 20px;
-            padding: 14px;
-            width: 100%;
-            background: #00c6ff;
-            background: linear-gradient(to right, #0072ff, #00c6ff);
-            border: none;
-            border-radius: 8px;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-        }
+input{
+    width:80%;
+    padding:14px;
+    margin-top:15px;
+    border-radius:8px;
+    border:none;
+    font-size:16px;
+    text-align:center;
+    outline:none;
+}
 
-        button:hover {
-            opacity: 0.9;
-        }
+button{
+    margin-top:20px;
+    padding:14px;
+    width:100%;
+    background:linear-gradient(to right,#0072ff,#00c6ff);
+    border:none;
+    border-radius:8px;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
 
-        .error {
-            color: #ff4d4d;
-            margin-top: 15px;
-            display: none;
-        }
+button:hover{opacity:.9}
 
-        .content {
-            display: none;
-            text-align: left;
-            line-height: 1.7;
-            font-size: 15px;
-        }
-    </style>
+.error{
+    color:#ff4d4d;
+    margin-top:15px;
+    display:none;
+}
+
+.content{
+    display:none;
+    text-align:left;
+    line-height:1.7;
+    font-size:15px;
+}
+
+.approval{
+    color:#2ecc71;
+    font-weight:600;
+    text-align:center;
+}
+</style>
 </head>
+
 <body>
 
 <div class="box" id="loginBox">
@@ -101,7 +93,6 @@
     <input type="password" id="pin" maxlength="5" placeholder="Enter PIN">
 
     <button onclick="checkPin()">Unlock</button>
-
     <div class="error" id="error">❌ Name or PIN wrong</div>
 </div>
 
@@ -110,64 +101,64 @@
     <p id="userData"></p>
 </div>
 
-
 <script>
 const users = [
     {
-        name: "MD MAMUN",
-        pin: "79523",
-        content: `
-            MD MAMUN<br>
-            A18273498<br>
-            <b>অনুমোদিত</b><br>
-            ✔️ Approved
+        name:"MD MAMUN",
+        pin:"79523",
+        content:`
+        MD MAMUN<br>
+        A18273498<br>
+        <b>Ingħatajt permess ta' residenza ta' sentejn fis-Serbja.<br> 
+        Il-Kumpanija tal-Ikel Polar ikkuntattjatek. Nittamaw li ma <br> tinvolvix ruħek f'xi attività kriminali. Merħba fis-Serbja</b><br>
+        ✔️ Approved
         `
     },
     {
-        name: "MD UJJOL HOSSAIN",
-        pin: "59106",
-        content: `
-            MD UJJOL HOSSAIN<br>
-            A16959121<br>
-            <b>অনুমোদিত</b><br>
-            ✔️ Approved
+        name:"MD UJJOL HOSSAIN",
+        pin:"59106",
+        content:`
+        MD UJJOL HOSSAIN<br>
+        A16959121<br>
+        <b>Ingħatajt permess ta' residenza ta' sentejn fis-Serbja.<br> 
+        Il-Kumpanija tal-Ikel Polar ikkuntattjatek. Nittamaw li ma <br> tinvolvix ruħek f'xi attività kriminali. Merħba fis-Serbja</b><br>
+        ✔️ Approved
         `
     },
     {
-        name: "HANNAN BHUIYAN",
-        pin: "49580",
-        content: `
-            HANNAN BHUIYAN<br>
-            A16959121<br>
-            <b>অনুমোদিত</b><br>
-            ✔️ Approved
+        name:"HANNAN BHUIYAN",
+        pin:"49580",
+        content:`
+        HANNAN BHUIYAN<br>
+        A16959121<br>
+        <b>Ingħatajt permess ta' residenza ta' sentejn fis-Serbja.<br> 
+        Il-Kumpanija tal-Ikel Polar ikkuntattjatek. Nittamaw li ma <br> tinvolvix ruħek f'xi attività kriminali. Merħba fis-Serbja</b><br>
+        ✔️ Approved
         `
     }
 ];
 
-function checkPin() {
-    const nameInput = document.getElementById("username").value.toUpperCase();
-    const pinInput = document.getElementById("pin").value;
+function checkPin(){
+    const nameInput = document.getElementById("username").value.trim().toUpperCase();
+    const pinInput  = document.getElementById("pin").value.trim();
+    const errorBox  = document.getElementById("error");
 
-    const user = users.find(
-        u => u.name === nameInput && u.pin === pinInput
-    );
+    const user = users.find(u => u.name===nameInput && u.pin===pinInput);
 
-    if (user) {
-        document.getElementById("loginBox").style.display = "none";
-        document.getElementById("contentBox").style.display = "block";
-        document.getElementById("userData").innerHTML = user.content;
-    } else {
-        document.getElementById("error").style.display = "block";
+    if(user){
+        errorBox.style.display="none";
+        document.getElementById("loginBox").style.display="none";
+        document.getElementById("contentBox").style.display="block";
+        document.getElementById("userData").innerHTML=user.content;
+    }else{
+        errorBox.style.display="block";
     }
 }
+
+document.addEventListener("keydown",e=>{
+    if(e.key==="Enter") checkPin();
+});
 </script>
-
-
 
 </body>
 </html>
-
-
-
-
