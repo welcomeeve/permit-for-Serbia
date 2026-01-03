@@ -106,39 +106,68 @@
 </div>
 
 <div class="box content" id="contentBox">
-    <img src="">
     <h2 class="approval">Approval</h2>
-    <p>
-       HANNAN BHUIYAN<br>
-        A16959121
-         <br>
-            <b>Your visa has been approved</b>
-        <br>
-        Ingħatajt permess ta' residenza ta' sentejn fis-Serbja.
-Il-Kumpanija tal-Ikel Polar ikkuntattjatek. Nittamaw li ma <br> tinvolvix ruħek f'xi attività kriminali. Merħba fis-Serbja.
-    </p>
+    <p id="userData"></p>
 </div>
 
+
 <script>
-    const correctPin = "49580";
-    const correctName = "HANNAN BHUIYAN"; // 👉 এখানে নাম দিন (CAPITAL recommended)
-
-    function checkPin() {
-        const pin = document.getElementById("pin").value;
-        const name = document.getElementById("username").value.toUpperCase();
-
-        if (pin === correctPin && name === correctName) {
-            document.getElementById("loginBox").style.display = "none";
-            document.getElementById("contentBox").style.display = "block";
-        } else {
-            document.getElementById("error").style.display = "block";
-        }
+const users = [
+    {
+        name: "MD MAMUN",
+        pin: "79523",
+        content: `
+            MD MAMUN<br>
+            A18273498<br>
+            <b>অনুমোদিত</b><br>
+            ✔️ Approved
+        `
+    },
+    {
+        name: "MD UJJOL HOSSAIN",
+        pin: "59106",
+        content: `
+            MD UJJOL HOSSAIN<br>
+            A16959121<br>
+            <b>অনুমোদিত</b><br>
+            ✔️ Approved
+        `
+    },
+    {
+        name: "HANNAN BHUIYAN",
+        pin: "49580",
+        content: `
+            HANNAN BHUIYAN<br>
+            A16959121<br>
+            <b>অনুমোদিত</b><br>
+            ✔️ Approved
+        `
     }
+];
+
+function checkPin() {
+    const nameInput = document.getElementById("username").value.toUpperCase();
+    const pinInput = document.getElementById("pin").value;
+
+    const user = users.find(
+        u => u.name === nameInput && u.pin === pinInput
+    );
+
+    if (user) {
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("contentBox").style.display = "block";
+        document.getElementById("userData").innerHTML = user.content;
+    } else {
+        document.getElementById("error").style.display = "block";
+    }
+}
 </script>
+
 
 
 </body>
 </html>
+
 
 
 
